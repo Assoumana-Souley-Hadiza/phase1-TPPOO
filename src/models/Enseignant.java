@@ -16,12 +16,13 @@ public class Enseignant {
     public Enseignant() {
     }
 
-    public Enseignant(String nom, String prenom, String email, String grade, Departement dept) {
+    public Enseignant(int id,String nom, String prenom, String email, String grade, Departement dept) {
         this.nom = nom;
         this.prenom = prenom;
         this.email = email;
         this.grade = grade;
         this.dept = dept;
+        this.id=id;
     }
 
     public String getNom() {
@@ -95,4 +96,16 @@ public class Enseignant {
         return true;
     }
 
+    @Override
+    public String toString() {
+        return "Enseignant{" +
+                "id=" + id +
+                ", nom='" + nom + '\'' +
+                ", prenom='" + prenom + '\'' +
+                ", email='" + email + '\'' +
+                ", grade='" + grade + '\'' +
+                ", dept=" + dept +
+                ", modules=" + modules +
+                '}';
+    }
 }

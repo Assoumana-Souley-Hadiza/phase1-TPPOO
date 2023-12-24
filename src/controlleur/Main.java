@@ -46,13 +46,6 @@ public class Main {public static boolean isNull(Object ob) {
     }
     public static void main(String[] args) {
 
-        Enseignant enseignant = new Enseignant();
-        enseignant.setNom("Amine");
-        enseignant.setPrenom("Ben Charif");
-        enseignant.setEmail("test@gmail.com");
-        enseignant.setGrade("PES");
-        enseignant.setId(DB.getEnsId());
-        DB.enseignants.add(enseignant);
         showPrincipalMenu();
     }
 }

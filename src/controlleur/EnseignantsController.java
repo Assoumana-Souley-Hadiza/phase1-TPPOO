@@ -4,7 +4,7 @@ import models.Enseignant;
 import services.DB;
 import services.DepartementServices;
 import services.EnseignantServices;
-
+import models.Departement;
 public class EnseignantsController {
 
     public static void showMenu(){
@@ -43,9 +43,16 @@ public class EnseignantsController {
             System.out.print("Id : " + enseignant.getId());
             System.out.print(" | Nom : " + enseignant.getNom() + " " + enseignant.getPrenom());
             System.out.print(" | Email : " + enseignant.getEmail() );
-            System.out.print(" | Departement : " + enseignant.getDept().getIntitule());
-            System.out.println("");
+            if (enseignant.getDept() != null) {
+
+                int departementId = enseignant.getDept().getId();
+                System.out.println("departement= "+departementId);
+            } else {
+
+                System.out.println(" ");
+            }
         }
+
     }
     public static void createEnseignant(){
         String nom = myscanner.getStringInput("Entrez le nom :");

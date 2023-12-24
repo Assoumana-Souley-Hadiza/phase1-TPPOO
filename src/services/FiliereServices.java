@@ -12,6 +12,7 @@ public class FiliereServices {
         filiere.setIntitule(intitule);
         filiere.setDept(dept);
         filiere.setChef(chef);
+        filiere.setId(DB.getFilIdId());
         DB.filieres.add(filiere);
         return   filiere;
     }

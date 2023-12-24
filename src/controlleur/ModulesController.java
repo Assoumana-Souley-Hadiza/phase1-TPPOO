@@ -39,18 +39,23 @@ public class ModulesController {
         for (Module module : DB.modules) {
             System.out.print("Id : " + module.getId());
             System.out.print(" | Intitulé : " + module.getIntitule());
-            System.out.print(" | Enseignant : " + module.getChef().getNom() + " " + module.getChef().getPrenom());
-            System.out.print(" | Filiere : " + module.getFiliere());
+            if (module.getChef() != null && module.getFiliere()!=null) {
+                String modulechef =module.getChef().getNom();
+                String departement=module.getFiliere().getIntitule();
+                System.out.println("modulechef= " +module.getChef().getNom());
+                System.out.println("departement= " +module.getFiliere().getIntitule());
+            } else {
+                System.out.println(" ");
+            }
             System.out.println("");
         }
-
     }
     public static void createModule(){
         String intitule = myscanner.getStringInput("Entrez l'intitulé :");
         EnseignantsController.showEnseignants();
         int id = myscanner.getIntInput("Sélecionnez un enseignant par id :");
         FilieresController.showFilieres();
-        int idfil=myscanner.getIntInput("Sélecionnez un enseignant par id :");
+        int idfil=myscanner.getIntInput("Sélecionnez une filiere par id :");
        ModuleServices.addModule(intitule,EnseignantServices.getEnsById(id),FiliereServices.getFiliereById(idfil));
         showModules();
         showMenu();

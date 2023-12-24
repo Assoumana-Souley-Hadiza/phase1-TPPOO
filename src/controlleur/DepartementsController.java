@@ -54,7 +54,6 @@ public class DepartementsController {
         EnseignantsController.showEnseignants();
         int id = myscanner.getIntInput("Sélecionnez un enseignant par id :");
         DepartementServices.addDept(intitule, EnseignantServices.getEnsById(id));
-
         showDepartements();
         showMenu();
 

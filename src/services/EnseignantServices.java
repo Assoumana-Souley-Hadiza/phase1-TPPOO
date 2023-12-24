@@ -13,6 +13,7 @@ public class EnseignantServices {
         enseignant.setEmail(email);
         enseignant.setGrade(grade);
         enseignant.setDept(dept);
+        enseignant.setId(DB.getEnsId());
         DB.enseignants.add(enseignant);
         return enseignant;
     }

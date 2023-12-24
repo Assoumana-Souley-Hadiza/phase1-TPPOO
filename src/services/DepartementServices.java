@@ -13,7 +13,7 @@ public class DepartementServices {
         }
         DB.departements.add(departement);
 
-        return new Departement() ;
+        return departement ;
     }
 
     public static Departement updateDept(int id , String intitule, Enseignant... chef){
@@ -38,7 +38,7 @@ public class DepartementServices {
         for (Departement departement : DB.departements) {
             if (departement.getId() == id) return  departement;
         }
-        return  new Departement();
+        return  null;
     }
 
     public static ArrayList<Departement> getAllDept(){

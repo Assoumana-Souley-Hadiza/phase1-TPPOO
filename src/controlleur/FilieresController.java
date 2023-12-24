@@ -38,9 +38,14 @@ public class FilieresController {
         for (Filiere filiere : DB.filieres) {
             System.out.print("Id : " + filiere.getId());
             System.out.print(" | l'intitulé : " + filiere.getIntitule());
-            System.out.print(" | Responsable : " + filiere.getChef().getNom());
-            System.out.print(" | Departement : " + filiere.getDept().getIntitule());
-            System.out.println("");
+            if (filiere.getChef() != null && filiere.getDept()!=null) {
+                String filierechef =filiere.getChef().getNom();
+                String departement=filiere.getDept().getIntitule();
+                System.out.println("filierechef= " +filiere.getChef().getNom());
+                System.out.println("departement= " +filiere.getDept().getIntitule());
+            } else {
+                System.out.println(" ");
+            }
         }
     }
     public static void createFiliere(){

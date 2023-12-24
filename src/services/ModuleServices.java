@@ -12,6 +12,7 @@ public class ModuleServices {
         module.setIntitule(intitule);
         module.setChef(chef);
         module.setFiliere(filiere);
+        module.setId(DB.getModId());
         DB.modules.add(module);
         return  module;
     }

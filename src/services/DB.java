@@ -29,6 +29,14 @@ public class DB {
         MOD_ID++;
         return MOD_ID;
     }
+    public  static int getEtId(){
+        ETD_ID++;
+        return ETD_ID;
+    }
+    public  static int getFilIdId(){
+        FIL_ID++;
+        return FIL_ID;
+    }
 
 
 }

@@ -12,7 +12,8 @@ public class EtudiantServices {
        etudiant.setNom(nom);
         etudiant.setPrenom(prenom);
         etudiant.setEmail(email);
-        etudiant.setId(apogee);
+        etudiant.setApogee(apogee);
+        etudiant.setId(DB.getEtId());
         etudiant.setFiliere(filiere);
         DB.etudiants.add(etudiant);
         return   etudiant;

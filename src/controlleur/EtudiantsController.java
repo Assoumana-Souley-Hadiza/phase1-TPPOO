@@ -14,8 +14,8 @@ public class EtudiantsController {
 
         System.out.println("1: Pour ajouter un etudiant");
         System.out.println("2: Pour afficher les etudiants");
-        System.out.println("3: Pour modifier un enseignant");
-        System.out.println("4: Pour supprimer un enseignant");
+        System.out.println("3: Pour modifier un etudiant");
+        System.out.println("4: Pour supprimer un etudiant");
         System.out.println("0: Pour retourner au menu principal");
 
         //"Veuillez sélectionner une option : ")
@@ -38,21 +38,25 @@ public class EtudiantsController {
         }
     }
 
-    public static void showEtudiants(){
+    public static void showEtudiants() {
         for (Etudiant etudiant : DB.etudiants) {
             System.out.print("Id : " + etudiant.getId());
             System.out.print(" | Nom : " + etudiant.getNom() + " " + etudiant.getPrenom());
             System.out.print(" | Email : " + etudiant.getEmail());
-            System.out.print("| Apogée: " +etudiant.getApogee());
-            System.out.print(" | Filiere : " + etudiant.getFiliere().getIntitule());
-            System.out.println("");
+            System.out.print("| Apogée: " + etudiant.getApogee());
+            if (etudiant.getFiliere() != null) {
+                String filiereIntitule = etudiant.getFiliere().getIntitule();
+                System.out.println("filiere= " + etudiant.getFiliere().getIntitule());
+            } else {
+                System.out.println(" ");
+            }
         }
     }
     public static void createEtudiant(){
         String nom = myscanner.getStringInput("Entrez le nom :");
         String prenom = myscanner.getStringInput("Entrez le prenom :");
         String email = myscanner.getStringInput("Entrez l'email' :");
-        int apogee = myscanner.getIntInput("Entrez le grade' :");
+        int apogee = myscanner.getIntInput("Entrez l'apogee' :");
         int id = myscanner.getIntInput("Sélectionnez une filiere par id :");
         EtudiantServices.addEtd(nom,prenom,email,apogee, FiliereServices.getFiliereById(id));
         showEtudiants();
